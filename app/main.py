@@ -7,8 +7,9 @@ def main():
 
     with client_socket:
       print(f"Connected by {client_addr}")
-      client_msg = client_socket.recv(1024)
-      client_socket.sendall("+PONG\r\n".encode())
+      while True:
+        client_msg = client_socket.recv(1024)
+        client_socket.sendall("+PONG\r\n".encode())
 
 
 if __name__ == "__main__":
